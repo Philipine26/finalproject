@@ -5,6 +5,9 @@
 # import utils
 import utils
 from Batmobile import Batmobile
+from rich.console import Console 
+from rich.panel import Panel
+console = Console()
 
 batmobile = True
 
@@ -12,7 +15,9 @@ batmobile = True
 def main():
     
     #TODO: Get the title
-    print(utils.title("  Batmobile Life Saver  "))
+    title = utils.title("  Batmobile Life Saver  ")
+    console.print( Panel.fit(f" {title}"),
+        style="bold blue")
     
     #TODO: Get input
     name = input("Enter Pilot's name: ")
@@ -25,7 +30,7 @@ def main():
     my_batmobile = Batmobile(name, color, capacity, speed)
     
     #TODO: Share the information by print
-    print(f"{name} has a {color} Batmobile that can contain {capacity} max. It has a maximum speed of {speed}.")
+    console.print(f"[yellow]{name}[/yellow] has a [red]{color}[/red] Batmobile that can contain [green]{capacity}[/green] max. It has a maximum speed of [blue]{speed}[/blue].")
     print("")
 
     # Create the loop
